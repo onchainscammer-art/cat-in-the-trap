@@ -1,36 +1,177 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Cat in the Trap 🐱💊
 
-## Getting Started
+A dark, satirical memecoin landing page that reimagines Dr. Seuss in a trap house aesthetic. Built with Next.js 14, featuring immersive scrollytelling experiences powered by Framer Motion.
 
-First, run the development server:
+## 🎨 The Aesthetic: "Dark Seuss"
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This project balances childhood nostalgia with dark, gritty trap-house vibes:
+
+- **Background**: Deep Charcoal (#1a1a1a) with subtle noise/paper grain texture
+- **Accents**: Warning Red (#ff3b30) and Cocaine White (#ffffff)
+- **Typography**:
+  - Headers: "Permanent Marker" (messy, hand-drawn Dr. Seuss feel)
+  - Body: "Patrick Hand" for UI elements
+  - Story: "Merriweather" serif for narrative text
+
+## 🛠️ Tech Stack
+
+- **Next.js 14** (App Router)
+- **TypeScript**
+- **Tailwind CSS** (Styling)
+- **Framer Motion** (Scroll-based animations)
+- **Lucide React** (Icons)
+- **Shadcn/UI** (Components)
+
+## 📁 Project Structure
+
+```
+cat-in-trap/
+├── app/
+│   ├── globals.css          # Custom theme and fonts
+│   ├── layout.tsx           # Root layout with metadata
+│   └── page.tsx             # Main landing page
+├── components/
+│   ├── Navbar.tsx           # Sticky glassmorphism navbar
+│   ├── Hero.tsx             # Hero section with fade-in animations
+│   ├── Story.tsx            # Scrollytelling story section
+│   ├── Gallery.tsx          # Masonry grid meme gallery
+│   └── Footer.tsx           # Footer with social links
+└── public/                  # Static assets (add images here)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Getting Started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Node.js 18+ installed
+- npm or yarn
 
-## Learn More
+### Installation
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Install dependencies
+npm install
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Run development server
+npm run dev
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Build for production
+npm run build
 
-## Deploy on Vercel
+# Start production server
+npm start
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open [http://localhost:3001](http://localhost:3001) in your browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ✨ Features
+
+### 1. Sticky Navbar with Glassmorphism
+- Smooth backdrop blur effect
+- Floating "Copy CA" button that persists on scroll
+- Responsive mobile layout
+
+### 2. Hero Section
+- Large animated title with fade-in effect
+- Bounce animation for scroll indicator
+- Placeholder for hero image (Cat next to stove)
+
+### 3. The Story Section (Core Feature)
+- **Digital book layout** with alternating text/image positions
+- **Scroll-triggered animations** - text slides up and fades in smoothly
+- Three complete stanzas with proper Dr. Seuss rhythm
+- Image placeholders on alternating sides
+
+### 4. Meme Gallery
+- **Masonry grid layout** (responsive columns)
+- Gritty CSS filters (contrast + desaturation)
+- Hover effects with scale and border color transitions
+- Staggered fade-in animations on scroll
+
+### 5. Footer
+- Large social link buttons (X, Telegram, Pump.fun)
+- Hover effects with icon animations
+- Satirical tagline
+
+## 🎭 Customization Guide
+
+### Adding Real Images
+
+Replace placeholder images by adding files to `/public/` and updating components:
+
+**Hero Image** (`components/Hero.tsx`):
+```tsx
+<Image
+  src="/hero-cat.png"
+  alt="The Cat at the stove"
+  fill
+  className="object-cover"
+/>
+```
+
+**Story Images** (`components/Story.tsx`):
+Update the `imagePlaceholder` in the `stanzas` array.
+
+**Gallery Memes** (`components/Gallery.tsx`):
+Update the `memes` array with actual image paths.
+
+### Updating Contract Address
+
+Edit `components/Navbar.tsx`:
+```tsx
+const contractAddress = 'YOUR_ACTUAL_CONTRACT_ADDRESS_HERE';
+```
+
+### Changing Colors
+
+Edit `app/globals.css`:
+```css
+:root {
+  --background: #1a1a1a;      /* Main background */
+  --foreground: #ffffff;       /* Text color */
+  --primary: #ff3b30;          /* Accent/Red */
+  --accent: #ff3b30;           /* Secondary accent */
+}
+```
+
+### Modifying Social Links
+
+Edit `components/Footer.tsx` and `components/Navbar.tsx` to update URLs.
+
+## 🎬 Animation Details
+
+All animations use **Framer Motion**:
+
+- **Fade + Slide**: Elements fade in while sliding from left/right
+- **Scroll Detection**: `useInView` hook triggers animations when elements enter viewport
+- **Staggered Delays**: Gallery items animate with 100ms delays
+- **Smooth Easing**: All animations use natural easing curves
+
+## 📱 Responsive Design
+
+- **Mobile First**: Optimized for all screen sizes
+- **Breakpoints**:
+  - `sm:` 640px
+  - `md:` 768px
+  - `lg:` 1024px
+  - `xl:` 1280px
+
+## 🎯 Performance
+
+- Server-side rendering with Next.js 14
+- Optimized Google Fonts loading
+- Lazy loading for images
+- CSS-in-JS with Tailwind
+- Static generation ready
+
+## 📄 License
+
+This is a satirical art project. Use responsibly.
+
+## 🤝 Contributing
+
+This is a demonstration project. Fork and customize for your own memecoin!
+
+---
+
+**Real G's move in silence.**
