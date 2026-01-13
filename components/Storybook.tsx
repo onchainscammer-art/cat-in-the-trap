@@ -69,16 +69,16 @@ export default function Storybook() {
     {
       type: 'spread' as const,
       left: (
-        <div className="h-full flex items-center justify-center relative">
+        <div className="h-full flex items-center justify-center relative py-4">
           <InkSplatter className="top-10 right-10" color="#2a2520" />
           <Fingerprint className="bottom-20 left-10" />
 
-          <HandDrawnFrame className="w-full aspect-square max-h-full transform rotate-1">
+          <HandDrawnFrame className="w-full h-[85%] transform rotate-1">
             <div className="w-full h-full rounded-lg relative overflow-hidden">
               <img
                 src="/bookimage1.jpg"
                 alt="Empty streets at night"
-                className="w-full h-full object-contain object-top"
+                className="w-full h-full object-contain"
               />
             </div>
           </HandDrawnFrame>
@@ -138,17 +138,17 @@ export default function Storybook() {
     {
       type: 'spread' as const,
       left: (
-        <div className="h-full flex items-center justify-center relative">
+        <div className="h-full flex items-center justify-center relative py-4">
           <TornCorner corner="top-right" />
           <InkSplatter className="bottom-10 left-10" color="#ff3b30" />
           <StarDoodle className="top-1/3 left-10" />
 
-          <HandDrawnFrame className="w-full aspect-square max-h-full transform -rotate-2">
+          <HandDrawnFrame className="w-full h-[85%] transform -rotate-2">
             <div className="w-full h-full rounded-lg relative overflow-hidden">
               <img
                 src="/bookimage2.jpg"
                 alt="The Cat entering with the sack"
-                className="w-full h-full object-contain object-top"
+                className="w-full h-full object-contain"
               />
             </div>
           </HandDrawnFrame>
@@ -209,17 +209,17 @@ export default function Storybook() {
     {
       type: 'spread' as const,
       left: (
-        <div className="h-full flex items-center justify-center relative">
+        <div className="h-full flex items-center justify-center relative py-4">
           <CoffeeStain className="bottom-10 right-10" />
           <InkSplatter className="top-20 left-20" color="#ff3b30" />
           <StarDoodle className="bottom-1/4 left-10" />
 
-          <HandDrawnFrame className="w-full aspect-square max-h-full transform rotate-2">
+          <HandDrawnFrame className="w-full h-[85%] transform rotate-2">
             <div className="w-full h-full rounded-lg relative overflow-hidden">
               <img
                 src="/bookimage3.jpg"
                 alt="The Cat with Pyrex and cooking equipment"
-                className="w-full h-full object-contain object-top"
+                className="w-full h-full object-contain"
               />
             </div>
           </HandDrawnFrame>
