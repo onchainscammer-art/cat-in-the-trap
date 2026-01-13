@@ -73,7 +73,7 @@ export default function Storybook() {
           <InkSplatter className="top-10 right-10" color="#2a2520" />
           <Fingerprint className="bottom-20 left-10" />
 
-          <HandDrawnFrame className="w-[75%] max-h-[65vh] transform rotate-1">
+          <HandDrawnFrame className="w-[75%] max-h-[65vh] lg:-mt-4 transform rotate-1">
             <div className="w-full h-full rounded-lg relative overflow-hidden flex items-center justify-center">
               <img
                 src="/bookimage1.jpg"
@@ -143,7 +143,7 @@ export default function Storybook() {
           <InkSplatter className="bottom-10 left-10" color="#ff3b30" />
           <StarDoodle className="top-1/3 left-10" />
 
-          <HandDrawnFrame className="w-[75%] max-h-[65vh] transform -rotate-2">
+          <HandDrawnFrame className="w-[75%] max-h-[65vh] lg:-mt-4 transform -rotate-2">
             <div className="w-full h-full rounded-lg relative overflow-hidden flex items-center justify-center">
               <img
                 src="/bookimage2.jpg"
@@ -214,7 +214,7 @@ export default function Storybook() {
           <InkSplatter className="top-20 left-20" color="#ff3b30" />
           <StarDoodle className="bottom-1/4 left-10" />
 
-          <HandDrawnFrame className="w-[75%] max-h-[65vh] transform rotate-2">
+          <HandDrawnFrame className="w-[75%] max-h-[65vh] lg:-mt-4 transform rotate-2">
             <div className="w-full h-full rounded-lg relative overflow-hidden flex items-center justify-center">
               <img
                 src="/bookimage3.jpg"
