@@ -69,7 +69,7 @@ export default function Storybook() {
     {
       type: 'spread' as const,
       left: (
-        <div className="h-full flex items-center justify-center relative">
+        <div className="h-full flex items-center justify-center lg:items-start lg:justify-start relative">
           <InkSplatter className="top-10 right-10" color="#2a2520" />
           <Fingerprint className="bottom-20 left-10" />
 
@@ -138,7 +138,7 @@ export default function Storybook() {
     {
       type: 'spread' as const,
       left: (
-        <div className="h-full flex items-center justify-center relative">
+        <div className="h-full flex items-center justify-center lg:items-start lg:justify-start relative">
           <TornCorner corner="top-right" />
           <InkSplatter className="bottom-10 left-10" color="#ff3b30" />
           <StarDoodle className="top-1/3 left-10" />
@@ -209,7 +209,7 @@ export default function Storybook() {
     {
       type: 'spread' as const,
       left: (
-        <div className="h-full flex items-center justify-center relative">
+        <div className="h-full flex items-center justify-center lg:items-start lg:justify-start relative">
           <CoffeeStain className="bottom-10 right-10" />
           <InkSplatter className="top-20 left-20" color="#ff3b30" />
           <StarDoodle className="bottom-1/4 left-10" />
