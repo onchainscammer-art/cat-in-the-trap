@@ -78,7 +78,7 @@ export default function Storybook() {
               <img
                 src="/bookimage1.jpg"
                 alt="Empty streets at night"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain object-top"
               />
             </div>
           </HandDrawnFrame>
@@ -148,7 +148,7 @@ export default function Storybook() {
               <img
                 src="/bookimage2.jpg"
                 alt="The Cat entering with the sack"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain object-top"
               />
             </div>
           </HandDrawnFrame>
@@ -219,7 +219,7 @@ export default function Storybook() {
               <img
                 src="/bookimage3.jpg"
                 alt="The Cat with Pyrex and cooking equipment"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain object-top"
               />
             </div>
           </HandDrawnFrame>
