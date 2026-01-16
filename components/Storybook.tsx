@@ -43,26 +43,36 @@ export default function Storybook() {
         </div>
       ),
       right: (
-        <div className="h-full flex items-center justify-center relative">
+        <div className="h-full flex flex-col items-center justify-start pt-8 sm:pt-12 relative">
           <CoffeeStain className="top-10 right-10" />
-          <ArrowDoodle className="top-1/3 left-10" direction="down" />
+          <ArrowDoodle className="top-1/4 left-10" direction="down" />
 
-          <div className="text-center">
+          <div className="text-center mb-6">
             <p
-              className="text-2xl sm:text-3xl text-[#2a2520] mb-4 transform rotate-1"
+              className="text-2xl sm:text-3xl text-[#2a2520] mb-3 transform rotate-1"
               style={{ fontFamily: 'var(--font-hand)' }}
             >
               A Dark Tale
             </p>
-            <div className="w-32 h-1 bg-[#ff3b30] mx-auto mb-8 transform -rotate-2"></div>
+            <div className="w-32 h-1 bg-[#ff3b30] mx-auto mb-3 transform -rotate-2"></div>
             <p
               className="text-lg text-[#6b5d4f] transform -rotate-1"
               style={{ fontFamily: 'var(--font-serif)' }}
             >
               For those who know
             </p>
-            <CircleDoodle className="bottom-10 right-20" />
           </div>
+
+          {/* Cat meme image */}
+          <div className="w-[70%] max-w-[250px] transform rotate-1">
+            <img
+              src="/catmeme1.jpg"
+              alt="Cat meme"
+              className="w-full rounded-lg shadow-lg border-4 border-[#2a2520]"
+            />
+          </div>
+
+          <CircleDoodle className="bottom-10 right-20" />
         </div>
       )
     },
