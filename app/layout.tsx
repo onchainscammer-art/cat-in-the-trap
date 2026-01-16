@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Patrick_Hand, Permanent_Marker, Merriweather } from "next/font/google";
 import "./globals.css";
+import MagicalCursor from "@/components/MagicalCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -46,6 +47,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${patrickHand.variable} ${permanentMarker.variable} ${merriweather.variable} antialiased`}
       >
         {children}
+        <MagicalCursor />
       </body>
     </html>
   );

@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import BookCover from './BookCover';
 import PageSpread from './PageSpread';
+import BackgroundMusic from './BackgroundMusic';
 import { CoffeeStain, InkSplatter, TornCorner, HandDrawnFrame, StarDoodle, ArrowDoodle, Fingerprint, CircleDoodle } from './BookDecorations';
 import { WobblyLine, Emphasis, Highlight, MotionLines } from './StoryText';
 
@@ -12,6 +13,7 @@ export default function Storybook() {
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
   const [mobileSubPage, setMobileSubPage] = useState(0); // 0 = left page, 1 = right page (for mobile only)
+  const [musicStarted, setMusicStarted] = useState(false);
 
   const pages = [
     // Page 0: Cover
@@ -448,6 +450,7 @@ export default function Storybook() {
               loop
               playsInline
               preload="auto"
+              muted
             >
               <source src="/finalbookmovie.mov" type="video/mp4" />
             </video>
@@ -567,11 +570,18 @@ export default function Storybook() {
     }
   };
 
+  const handleOpenBook = () => {
+    setMusicStarted(true);
+    nextPage();
+  };
+
   return (
     <div className="relative h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
+      <BackgroundMusic shouldPlay={musicStarted} />
+
       <AnimatePresence mode="wait" custom={direction}>
         {currentPage === 0 ? (
-          <BookCover key="cover" onOpen={nextPage} />
+          <BookCover key="cover" onOpen={handleOpenBook} />
         ) : (
           <PageSpread
             key={currentPage}
