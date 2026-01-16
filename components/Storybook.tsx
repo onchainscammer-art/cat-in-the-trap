@@ -63,11 +63,11 @@ export default function Storybook() {
             </p>
           </div>
 
-          {/* Cat meme image */}
+          {/* Title page image */}
           <div className="w-[70%] max-w-[250px] transform rotate-1">
             <img
-              src="/catmeme1.jpg"
-              alt="Cat meme"
+              src="/titlepage1.jpg"
+              alt="Cat in the trap"
               className="w-full rounded-lg shadow-lg border-4 border-[#2a2520]"
             />
           </div>
