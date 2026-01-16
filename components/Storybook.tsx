@@ -5,7 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import BookCover from './BookCover';
 import PageSpread from './PageSpread';
-import BackgroundMusic from './BackgroundMusic';
+import { useMusic } from './MusicProvider';
 import { CoffeeStain, InkSplatter, TornCorner, HandDrawnFrame, StarDoodle, ArrowDoodle, Fingerprint, CircleDoodle } from './BookDecorations';
 import { WobblyLine, Emphasis, Highlight, MotionLines } from './StoryText';
 
@@ -13,7 +13,7 @@ export default function Storybook() {
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
   const [mobileSubPage, setMobileSubPage] = useState(0); // 0 = left page, 1 = right page (for mobile only)
-  const [musicStarted, setMusicStarted] = useState(false);
+  const { startMusic } = useMusic();
 
   const pages = [
     // Page 0: Cover
@@ -534,7 +534,8 @@ export default function Storybook() {
 
   const nextPage = () => {
     // On mobile, check if we need to show the other page of the spread first
-    if (window.innerWidth < 1024) { // lg breakpoint
+    // Skip this logic on the cover page (page 0)
+    if (currentPage > 0 && window.innerWidth < 1024) { // lg breakpoint
       if (mobileSubPage === 0) {
         // Currently on left page, show right page
         setMobileSubPage(1);
@@ -553,6 +554,7 @@ export default function Storybook() {
 
   const prevPage = () => {
     // On mobile, check if we need to show the other page of the spread first
+    // But if we're on page 1 left side, go back to cover instead
     if (window.innerWidth < 1024) { // lg breakpoint
       if (mobileSubPage === 1) {
         // Currently on right page, show left page
@@ -560,25 +562,25 @@ export default function Storybook() {
         setDirection(-1);
         return;
       }
+      // On left page (mobileSubPage === 0), fall through to go to previous spread/cover
     }
 
     // Either desktop or mobile moving to previous spread
     if (currentPage > 0) {
       setDirection(-1);
       setCurrentPage(currentPage - 1);
-      setMobileSubPage(1); // Set to right page when going back
+      // When going back to cover (page 0), reset mobileSubPage
+      setMobileSubPage(currentPage === 1 ? 0 : 1);
     }
   };
 
   const handleOpenBook = () => {
-    setMusicStarted(true);
+    startMusic();
     nextPage();
   };
 
   return (
     <div className="relative h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
-      <BackgroundMusic shouldPlay={musicStarted} />
-
       <AnimatePresence mode="wait" custom={direction}>
         {currentPage === 0 ? (
           <BookCover key="cover" onOpen={handleOpenBook} />
@@ -598,7 +600,7 @@ export default function Storybook() {
         <>
           <button
             onClick={prevPage}
-            disabled={currentPage === 0 || (currentPage === 1 && mobileSubPage === 0 && window.innerWidth < 1024)}
+            disabled={currentPage === 0}
             className="fixed bottom-4 sm:bottom-8 left-4 sm:left-8 p-2 sm:p-3 bg-transparent text-[#2a2520]/40 hover:text-[#ff3b30] hover:scale-110 disabled:opacity-20 disabled:cursor-not-allowed transition-all z-[100]"
             aria-label="Previous page"
           >

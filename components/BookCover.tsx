@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface BookCoverProps {
   onOpen: () => void;
@@ -12,6 +13,19 @@ export default function BookCover({ onOpen }: BookCoverProps) {
     // LAYER 1: The Main Container
     // 'relative z-50' ensures this entire screen sits on top of everything else
     <div className="min-h-screen flex items-center justify-center bg-transparent relative z-50">
+
+      {/* Memes Button - Top Right */}
+      <Link href="/memes" className="fixed top-4 right-4 z-[60]">
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-6 py-3 bg-[#8B4513] text-white rounded-lg font-bold text-lg shadow-lg
+                     border-2 border-[#D2691E] hover:bg-[#A0522D] transition-all cursor-pointer"
+          style={{ fontFamily: 'var(--font-hand)' }}
+        >
+          Memes
+        </motion.div>
+      </Link>
       
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
